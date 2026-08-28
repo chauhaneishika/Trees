@@ -19,6 +19,16 @@ public class Basics {
         b.left=d; b.right=e;
         c.left=f; c.right=g;
         display(a);
+        System.out.println();
+        System.out.println(size(a));
+    }
+
+    private static int size(Node root) {
+        // if(root == null) return 0;
+        // int leftSize = size(root.left);
+        // int rightSize = size(root.right);
+        // return 1 + leftSize + rightSize;
+        return (root==null) ? 0 : (1 + size(root.left) + size(root.right));
     }
     private static void display(Node root) {
         if(root == null) return;
