@@ -21,14 +21,31 @@ public class Basics {
         display(a);
         System.out.println();
         System.out.println(size(a));
+        System.out.println(sum(a));
+        System.out.println(max(a));
+        System.out.println(levels(a));
     }
 
+    private static int levels(Node root) {
+        if(root == null) return 0;
+        return 1 + Math.max(levels(root.left),levels(root.right));
+    }
     private static int size(Node root) {
         // if(root == null) return 0;
         // int leftSize = size(root.left);
         // int rightSize = size(root.right);
         // return 1 + leftSize + rightSize;
         return (root==null) ? 0 : (1 + size(root.left) + size(root.right));
+    }
+
+    private static int sum(Node root) {
+        if(root == null) return 0;
+        return root.val + sum(root.left) + sum(root.right);
+    }
+
+    private static int max(Node root) {
+        if(root == null) return Integer.MIN_VALUE;
+        return Math.max(root.val,Math.max(max(root.left),max(root.right)));
     }
     private static void display(Node root) {
         if(root == null) return;
