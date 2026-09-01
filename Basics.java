@@ -30,6 +30,7 @@ public class Basics {
         if(root == null) return 0;
         return 1 + Math.max(levels(root.left),levels(root.right));
     }
+
     private static int size(Node root) {
         // if(root == null) return 0;
         // int leftSize = size(root.left);
