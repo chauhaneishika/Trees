@@ -33,6 +33,7 @@ public class LevelOrder {
         c.left=f; c.right=g;
         //levelOrder(a);
         levelOrderLineWise(a);
+        kthLevel(a,0,2);
     }
     // private static void levelOrder(Node root) {
     //     Queue<Node> q = new LinkedList<>();
@@ -62,5 +63,13 @@ public class LevelOrder {
             if(front.node.right!=null) q.add(new Pair(front.node.right, front.level+1));
         }
         System.out.println();
+    }
+    private static void kthLevel(Node root,int level,int k) {
+        if(root == null) return;
+        if(level == k) {
+            System.out.print(root.val+" ");
+        }
+        kthLevel(root.left,level+1,k);
+        kthLevel(root.right,level+1,k);
     }
 }
